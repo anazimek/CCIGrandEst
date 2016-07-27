@@ -64,7 +64,11 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     $routes->connect('/partenaires/*', ['controller' => 'Partenaires', 'action' => 'index']);
 
-    $routes->connect('/partenaires/', ['controller' => 'Partenaires', 'action' => 'view']);
+    $routes->connect(
+        '/partenaires/:companyName',
+        ['controller' => 'Partenaires', 'action' => 'view'],
+        ['pass' => ['companyName']]
+    );
 
     /**
      * Connect catchall routes for all controllers.

@@ -14,7 +14,7 @@
     <table class="vertical-table">
         <tr>
             <th><?= __('Email') ?></th>
-            <td><?= h($user->email) ?></td>
+            <td><?= h($user[0]['email']) ?></td>
         </tr>
         <tr>
             <th><?= __('Username') ?></th>
