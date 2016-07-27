@@ -13,20 +13,21 @@ class PartenairesController extends AppController
 
         $this->loadModel('Users');
 
-        $users = $this->paginate($this->Users->findAllByIsMember(1));
+        $users = $this->Users->findAllByIsMember(1);
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
 
     public function view($companyName)
     {
-        echo 'buuuuugggg';
-
+        $companyName = str_replace("-", " ", $companyName);
         $this->loadModel('Users');
-        $user = $this->Users->findAllByCompanyName($companyName)->toArray();
-        debug($user);
+        $user = $this->Users->findByCompanyName($companyName)->toArray();
 
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
+    }
+    public function add() {
+
     }
 }

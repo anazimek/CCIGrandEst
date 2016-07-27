@@ -22,6 +22,7 @@ use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
+use Cake\Utility\Text;
 
 /**
  * The default class to use for all routes
@@ -67,7 +68,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect(
         '/partenaires/:companyName',
         ['controller' => 'Partenaires', 'action' => 'view'],
-        ['pass' => ['companyName']]
+        ['pass' => [Text::slug('companyName')]]
     );
 
     /**
